@@ -5,7 +5,7 @@ require_once('./Models/Joke.php');
 
 class MockJokeRetriever implements JokeRetriever
 {
-    public function getJoke()
+    public function getJoke(): Joke
     {
         return new Joke(
             'Why do programmers wear glasses?',
