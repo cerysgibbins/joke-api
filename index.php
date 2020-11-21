@@ -1,8 +1,8 @@
 <?php
-    require_once('Services/JokeRetriever.php');
+    require_once('./Factories/JokeRetrieverFactory.php');
 
-    $jokeRetriever = new JokeRetriever();
-
+    $jokeRetriever = (new JokeRetrieverFactory)->create();
+    $joke = $jokeRetriever->getJoke();
 ?>
 
 <html>
@@ -10,6 +10,10 @@
         <title>Random Joke Generator</title>
     </head>
     <body>
-        <?php echo $jokeRetriever->getJoke(); ?>
+        <?php 
+            echo $joke->getSetup(); 
+            echo '<br>';
+            echo $joke->getDelivery();
+        ?>
     </body>
 </html>
